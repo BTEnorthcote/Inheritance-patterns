@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Monohybrid and dihybrid crosses: Year 12 revision tasks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#F3F5F8; --surface:#FFFFFF; --ink:#16212B; --muted:#4B5D6B; --line:#CAD4DC; --soft:#E8EDF2;
+  --c1:#D2582B; --c2:#2B6CB0; --c3:#7A4FB3; --c4:#2E8B6E; --barink:#FFFFFF; --good:#16794A; --bad:#B3261E; --focus:#2B6CB0;
+  --head:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'Atkinson Hyperlegible','Segoe UI',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#101820; --surface:#18262F; --ink:#E7EEF3; --muted:#9FB1BE; --line:#2C4150; --soft:#1F313B;
+    --c1:#F0845A; --c2:#74AAE8; --c3:#BC9CEB; --c4:#5ED0AB; --barink:#101820; --good:#58C98F; --bad:#FF8A80; --focus:#74AAE8;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101820; --surface:#18262F; --ink:#E7EEF3; --muted:#9FB1BE; --line:#2C4150; --soft:#1F313B;
+  --c1:#F0845A; --c2:#74AAE8; --c3:#BC9CEB; --c4:#5ED0AB; --barink:#101820; --good:#58C98F; --bad:#FF8A80; --focus:#74AAE8;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5}
+.wrap{max-width:1000px;margin:0 auto;padding:20px 16px 64px}
+h1,h2,h3{font-family:var(--head);line-height:1.15;margin:0}
+h1{font-size:clamp(1.9rem,5vw,2.8rem);font-weight:800;letter-spacing:-.01em}
+h2{font-size:1.5rem;font-weight:800;margin-bottom:6px}
+h3{font-size:1.1rem;font-weight:600;margin:0 0 8px}
+p{margin:0 0 10px;max-width:72ch}
+.lede{color:var(--muted);margin-top:8px}
+header{padding:8px 0 18px}
+nav.tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;border-bottom:2px solid var(--line);margin-bottom:22px;-webkit-overflow-scrolling:touch}
+nav.tabs button{flex:0 0 auto;font:inherit;font-weight:700;background:transparent;color:var(--muted);border:2px solid transparent;border-radius:8px;padding:8px 14px;cursor:pointer}
+nav.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+nav.tabs button:hover{border-color:var(--line)}
+button,select,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.btn{background:var(--ink);color:var(--bg);border:0;border-radius:8px;padding:9px 16px;font-weight:700;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:14px 0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.muted{color:var(--muted)}
+select{background:var(--bg);border:2px solid var(--line);border-radius:8px;padding:8px 10px}
+.fb{min-height:1.5em;font-weight:700;margin:8px 0}
+.fb.good{color:var(--good)} .fb.bad{color:var(--bad)}
+.prog{font-weight:700}
+.model{background:var(--soft);border-left:5px solid var(--c2);border-radius:6px;padding:10px 14px;margin-top:12px}
+.model p{margin-bottom:6px}
+details.q{border:1px solid var(--line);border-radius:10px;margin:10px 0;background:var(--surface)}
+details.q summary{cursor:pointer;padding:10px 14px;font-weight:700}
+details.q div{padding:0 14px 12px}
+.sw{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:6px;vertical-align:-2px}
+.sw.o{background:var(--c1)} .sw.b{background:var(--c2)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-weight:700;margin:6px 0}
+/* match */
+.sets{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.sets button,.qpick button,.seg button{border:2px solid var(--line);background:var(--surface);border-radius:8px;padding:6px 12px;cursor:pointer;font-weight:700}
+.sets button[aria-pressed="true"],.qpick button[aria-pressed="true"],.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+@media(max-width:640px){.mgrid{grid-template-columns:1fr}}
+.mgrid button{display:block;width:100%;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;margin-bottom:10px}
+.mgrid button.sel{border-color:var(--c2);background:color-mix(in srgb,var(--c2) 14%,var(--surface))}
+.mgrid button.done{border-color:var(--good);background:color-mix(in srgb,var(--good) 14%,var(--surface));cursor:default}
+.mgrid .term{font-family:var(--head);font-weight:600}
+/* quiz */
+.qtext{font-size:1.15rem;font-weight:700;margin-bottom:6px}
+.opts{display:grid;gap:8px;margin-top:10px}
+.opts button{text-align:left;border:2px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;cursor:pointer}
+.opts button:hover:not(:disabled){border-color:var(--c2)}
+.opts button.right{border-color:var(--good);background:color-mix(in srgb,var(--good) 14%,var(--surface))}
+.opts button.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--surface))}
+.opts.two{grid-template-columns:1fr 1fr}
+/* punnett */
+.ctrls{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px 20px}
+.ctrls label{display:block;font-weight:700;margin-bottom:3px}
+.ctrls select{width:100%}
+table.pun{border-collapse:separate;border-spacing:6px;margin:10px 0}
+table.pun th{font-family:var(--head);font-size:1.4rem;padding:6px 14px;text-align:center}
+table.pun td{width:120px;height:90px;text-align:center;border-radius:12px;font-family:var(--head);font-size:1.6rem;font-weight:800;vertical-align:middle}
+table.pun td small{display:block;font-family:var(--body);font-size:.78rem;font-weight:400;margin-top:2px}
+.dom{background:color-mix(in srgb,var(--c1) 22%,var(--surface));border:2px solid var(--c1)}
+.rec{background:color-mix(in srgb,var(--c2) 20%,var(--surface));border:2px solid var(--c2)}
+.res{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.bars .b1{display:flex;align-items:center;gap:8px;margin:5px 0}
+.bars .b1 span.l{width:130px;font-weight:700}
+.bars .b1 div.f{height:18px;border-radius:5px;min-width:2px}
+/* svg */
+.svgbox svg{width:100%;height:auto;display:block;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.svgbox text{font-family:var(--body);fill:var(--ink)}
+.small{font-size:12px;fill:var(--muted)}
+.pnode{cursor:pointer}
+.tl{stroke:var(--muted);stroke-width:2.5;fill:none}
+.tl.hl{stroke:var(--c1);stroke-width:4}
+.tn{fill:var(--surface);stroke:var(--ink);stroke-width:2.5;cursor:pointer}
+.tn.sel{fill:var(--c1);stroke:var(--c1)}
+.tn.ok{fill:var(--good);stroke:var(--good)}
+.tnt{font-weight:700;font-size:15px}
+.tnt.hl{fill:var(--c1);font-weight:800}
+/* seq */
+.seq{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;font-size:1.05rem;line-height:1.9;overflow-x:auto;white-space:nowrap}
+.seq .x{background:var(--c1);color:var(--barink);border-radius:3px;padding:0 1px}
+.seq b{display:inline-block;min-width:7.5em;font-family:var(--body);letter-spacing:0}
+table.mx{border-collapse:collapse;margin:10px 0}
+table.mx th,table.mx td{border:2px solid var(--line);padding:8px 14px;text-align:center}
+table.mx th{background:var(--soft)}
+table.mx td.fill{background:color-mix(in srgb,var(--c2) 16%,var(--surface));font-weight:800}
+/* build */
+.chip{display:block;width:100%;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:9px 12px;margin:6px 0;cursor:pointer}
+.chip:hover{border-color:var(--c2)}
+ol.ans{padding-left:0;list-style:none;margin:0}
+ol.ans li button{display:block;width:100%;text-align:left;background:var(--soft);border:2px solid var(--line);border-radius:10px;padding:9px 12px;margin:6px 0;cursor:pointer}
+ol.ans li button.ok{border-color:var(--good)} ol.ans li button.no{border-color:var(--bad)}
+.qpick{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+
+.ph0{background:color-mix(in srgb,var(--c1) 24%,var(--surface));border:2px solid var(--c1)}
+.ph1{background:color-mix(in srgb,var(--c2) 22%,var(--surface));border:2px solid var(--c2)}
+.ph2{background:color-mix(in srgb,var(--c3) 22%,var(--surface));border:2px solid var(--c3)}
+.ph3{background:color-mix(in srgb,var(--c4) 22%,var(--surface));border:2px solid var(--c4)}
+.dead{background:repeating-linear-gradient(45deg,var(--soft),var(--soft) 8px,var(--surface) 8px,var(--surface) 16px);border:2px dashed var(--muted);color:var(--muted)}
+table.pun td{width:130px}
+table.pun.small td{width:80px;height:60px;font-size:1.15rem}
+table.pun.small th{font-size:1.1rem;padding:3px 10px}
+.pun sup{font-size:.6em}
+.defbox{background:var(--soft);border-radius:10px;padding:12px 16px;margin:10px 0}
+.defbox p{margin-bottom:6px}
+.sw3{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:6px;vertical-align:-2px}
+table.sum{border-collapse:collapse;width:100%;font-size:.95rem}
+table.sum th,table.sum td{border:2px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+table.sum th{background:var(--soft)}
+.dgw{overflow-x:auto}
+table.dg{border-collapse:separate;border-spacing:5px}
+table.dg th{font-family:var(--head);font-size:1.1rem;padding:4px 8px;text-align:center;white-space:nowrap}
+table.dg td{text-align:center;border-radius:10px;min-width:88px;height:54px;font-family:var(--head);font-weight:800;font-size:1.05rem;padding:2px}
+table.dg td input{width:80px;text-align:center;font:inherit;border:2px solid var(--line);border-radius:8px;padding:8px 2px;background:var(--bg)}
+table.dg td input.ok{border-color:var(--good);background:color-mix(in srgb,var(--good) 14%,var(--surface))}
+table.dg td input.no{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,var(--surface))}
+.dots{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.dots i{display:block;width:22px;height:22px;border-radius:50%}
+.lg{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0;font-weight:700;font-size:.95rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Crosses and inheritance</h1>
+  <p class="lede">Year 12 Biology revision. Eight tasks on monohybrid and dihybrid crosses: dominance patterns, multiple and lethal alleles, Punnett squares, linked genes, crossing over and test crosses.</p>
+</header>
+<nav class="tabs" role="tablist" aria-label="Tasks" id="tabs"></nav>
+
+<section id="p-match" hidden>
+  <h2>Match-up</h2>
+  <p>Pick a set. Select a term, then select its matching definition or example. Correct pairs turn green.</p>
+  <div class="sets" id="setBtns"></div>
+  <div class="row"><span class="prog" id="mScore"></span><button class="btn ghost" id="mReset">Start again</button></div>
+  <div class="fb" id="mFb" aria-live="polite"></div>
+  <div class="mgrid" id="mGrid"></div>
+</section>
+
+<section id="p-gt" hidden>
+  <h2>Genotype check</h2>
+  <p>Questions on dominant and recessive alleles, genotypes and simple Punnett square probabilities. In these questions T (tall) is dominant to t (short).</p>
+  <div class="card" id="gtQuiz"></div>
+</section>
+
+<section id="p-mono" hidden>
+  <h2>Monohybrid cross lab</h2>
+  <p>A monohybrid cross follows one gene. Choose a pattern of inheritance and two parents. The Punnett square shows the offspring genotypes and phenotypes and their probabilities.</p>
+  <div class="card"><h3>Pattern of inheritance</h3><div class="seg" id="moMode" role="group" aria-label="Pattern of inheritance"></div><div class="defbox" id="moDef"></div></div>
+  <div class="card"><div class="ctrls">
+    <div><h3>Parent 1 genotype</h3><div class="seg" id="moA" role="group" aria-label="Parent 1 genotype"></div></div>
+    <div><h3>Parent 2 genotype</h3><div class="seg" id="moB" role="group" aria-label="Parent 2 genotype"></div></div>
+  </div></div>
+  <div class="card" id="moOut"></div>
+  <details class="q"><summary>Summary of the five patterns</summary><div>
+   <table class="sum"><thead><tr><th>Pattern</th><th>Heterozygote phenotype</th><th>Het x het phenotype ratio</th><th>Example</th></tr></thead><tbody>
+   <tr><td>Complete dominance</td><td>Same as homozygous dominant</td><td>3 : 1</td><td>Pea flower colour</td></tr>
+   <tr><td>Incomplete dominance</td><td>Intermediate (a blend)</td><td>1 : 2 : 1</td><td>Snapdragon colour</td></tr>
+   <tr><td>Co-dominance</td><td>Both alleles fully expressed</td><td>1 : 2 : 1</td><td>Roan cattle</td></tr>
+   <tr><td>Multiple alleles</td><td>Depends on the pair of alleles</td><td>Up to 4 phenotypes</td><td>ABO blood groups</td></tr>
+   <tr><td>Lethal allele</td><td>Depends; one genotype does not survive</td><td>2 : 1 (survivors)</td><td>Manx cats</td></tr>
+   </tbody></table></div></details>
+</section>
+
+<section id="p-spot" hidden>
+  <h2>Spot the pattern</h2>
+  <p>Decide which pattern of inheritance is shown, and interpret what the Punnett square predicts.</p>
+  <div class="card" id="spotQuiz"></div>
+</section>
+
+<section id="p-di" hidden>
+  <h2>Dihybrid cross lab</h2>
+  <p>A dihybrid cross follows two genes at once. Here the genes are seed shape (R round is dominant to r wrinkled) and seed colour (Y yellow is dominant to y green). The genes are on different chromosomes, so they assort independently. Each parent makes four types of gamete by combining one allele of each gene.</p>
+  <div class="card"><div class="ctrls">
+    <div><label for="dA">Parent 1 genotype</label><select id="dA"></select></div>
+    <div><label for="dB">Parent 2 genotype</label><select id="dB"></select></div>
+    <div><label>Mode</label><div class="seg" id="dMode" role="group" aria-label="Mode"><button data-m="test" aria-pressed="true">Test me</button><button data-m="show" aria-pressed="false">Show me</button></div></div>
+  </div></div>
+  <div class="card"><h3>Gametes</h3><p id="dGam"></p>
+   <div class="dgw" id="dGrid"></div>
+   <div class="row" id="dBtns" style="margin-top:10px"><button class="btn" id="dCheck">Check my square</button><button class="btn ghost" id="dReveal">Reveal answers</button></div>
+   <p class="fb" id="dFb" aria-live="polite"></p></div>
+  <div class="card" id="dRes"></div>
+  <div class="card" id="diQuiz"></div>
+</section>
+
+<section id="p-link" hidden>
+  <h2>Linked genes lab</h2>
+  <p>In fruit flies, body colour (B grey is dominant to b black) and wing length (V long is dominant to v vestigial) are on the same chromosome. A heterozygous fly with the alleles B V on one chromosome and b v on its homologue is test crossed with a black, vestigial fly (bbvv). Change the settings to see the offspring phenotypes.</p>
+  <div class="card">
+    <div class="row"><div class="seg" id="lkMode" role="group" aria-label="Gene location"><button data-m="linked" aria-pressed="true">Genes are linked (same chromosome)</button><button data-m="indep" aria-pressed="false">Genes are on different chromosomes</button></div></div>
+    <div id="lkSliderWrap" style="margin-top:12px"><label for="lkD" style="font-weight:700">Distance between the genes: <span id="lkDv"></span> map units</label><input type="range" id="lkD" min="0" max="50" value="10" style="width:100%;accent-color:var(--c2)"></div>
+  </div>
+  <div class="res">
+    <div class="svgbox"><svg id="lkSvg" viewBox="0 0 360 270" role="img" aria-label="Chromosomes of the heterozygous fly"></svg></div>
+    <div class="card" style="margin:0" id="lkGam"></div>
+  </div>
+  <div class="card"><h3>Offspring of the test cross (expected)</h3><div class="bars" id="lkBars"></div>
+    <div class="row" style="margin-top:8px"><button class="btn" id="lkBreed">Breed 200 flies</button></div>
+    <div class="bars" id="lkSim" aria-live="polite"></div></div>
+  <div class="card" id="lkMsg"></div>
+  <details class="q"><summary>Question 1: Explain what linked genes are and why they cannot independently assort</summary><div>
+   <div class="model"><p>Linked genes are located close together on the same chromosome. In meiosis, whole chromosomes separate into gametes, so genes on the same chromosome are carried into the same gamete together. They cannot assort independently of each other, so the parental combinations of alleles appear in most of the offspring instead of the 1 : 1 : 1 : 1 ratio of independent genes.</p></div></div></details>
+  <details class="q"><summary>Question 2: Explain how linked alleles may be separated by crossing over</summary><div>
+   <div class="model"><p>In prophase I, homologous chromosomes pair up and non-sister chromatids swap sections of DNA. If the crossover falls between the two genes, the alleles on a chromatid are exchanged, making recombinant chromatids (B v and b V). Gametes with these chromatids give recombinant offspring. The further apart the genes are, the more often crossing over separates them, and genes very far apart give results like independent assortment (50% recombinants).</p></div></div></details>
+</section>
+
+<section id="p-tc" hidden>
+  <h2>Test cross detective</h2>
+  <div class="defbox"><p><strong>What is a test cross?</strong> A cross between an individual that shows the dominant phenotype but has an unknown genotype and a homozygous recessive individual. Because the recessive parent only passes on recessive alleles, the phenotypes of the offspring reveal the unknown parent's genotype.</p>
+  <p><strong>How it is carried out:</strong></p>
+  <ol><li>Choose the individual with the dominant phenotype. It could be homozygous dominant or heterozygous.</li><li>Cross it with a homozygous recessive individual.</li><li>Produce a large number of offspring.</li><li>Count the offspring of each phenotype.</li><li>All dominant offspring means the parent is homozygous dominant. About half recessive means it is heterozygous.</li></ol></div>
+  <div class="card">
+    <div class="row"><div class="seg" id="tcMode" role="group" aria-label="Genes"><button data-m="mono" aria-pressed="true">One gene (flower colour)</button><button data-m="di" aria-pressed="false">Two genes (seed shape and colour)</button></div>
+    <label for="tcN" style="font-weight:700">Offspring:</label><select id="tcN"><option>4</option><option selected>12</option><option>40</option></select>
+    <button class="btn" id="tcBreed">Cross with homozygous recessive</button><button class="btn ghost" id="tcNew">New unknown parent</button></div>
+    <p id="tcIntro" style="margin-top:10px"></p>
+    <div class="lg" id="tcLegend"></div><div class="dots" id="tcDots"></div><p id="tcCounts" style="font-weight:700"></p>
+    <div id="tcAns"></div><p class="fb" id="tcFb" aria-live="polite"></p>
+    <p class="prog" id="tcScore"></p></div>
+  <div class="card"><h3>The Punnett squares behind it</h3><p>Pea plants: purple (P) is dominant to white (p). The unknown purple plant is crossed with a white plant (pp).</p>
+    <div class="res"><div><p><strong>If the unknown plant is PP</strong></p><div id="tcSq1"></div><p class="muted">All offspring are Pp, so all are purple.</p></div>
+    <div><p><strong>If the unknown plant is Pp</strong></p><div id="tcSq2"></div><p class="muted">Half the offspring are Pp (purple) and half are pp (white).</p></div></div></div>
+</section>
+
+<section id="p-build" hidden>
+  <h2>Build an answer</h2>
+  <p>Choose a question, then select the sentences in an order that builds the explanation. Select a sentence in your answer to send it back.</p>
+  <div class="qpick" id="qpick"></div>
+  <div class="card" id="buildCard"></div>
+</section>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+function gcd(a,b){return b?gcd(b,a%b):a}
+
+/* ---------- tabs ---------- */
+const TABS=[['match','Match-up'],['gt','Genotype check'],['mono','Monohybrid lab'],['spot','Spot the pattern'],['di','Dihybrid lab'],['link','Linked genes'],['tc','Test cross'],['build','Build an answer']];
+const tabsEl=$('#tabs');
+TABS.forEach(([id,l])=>{const b=document.createElement('button');b.textContent=l;b.setAttribute('role','tab');b.dataset.t=id;b.addEventListener('click',()=>show(id));tabsEl.appendChild(b)});
+function show(id){
+  TABS.forEach(([t])=>{$('#p-'+t).hidden=t!==id});
+  tabsEl.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===id?'true':'false'));
+}
+/* ---------- generic quiz ---------- */
+function makeQuiz(root,items,title){
+  let i=0,score=0,answered=false,order=shuf(items.map((_,k)=>k));
+  function draw(){
+    if(i>=items.length){
+      root.innerHTML=`<h3>${title}</h3><p class="qtext">You scored ${score} out of ${items.length}.</p><button class="btn" data-a="again">Try again</button>`;
+      root.querySelector('[data-a="again"]').addEventListener('click',()=>{i=0;score=0;answered=false;order=shuf(order);draw()});return;
+    }
+    const it=items[order[i]];
+    root.innerHTML=`<h3>${title}</h3><p class="prog">Question ${i+1} of ${items.length}</p><p class="qtext">${it.q}</p>
+      <div class="opts ${it.opts.length===2?'two':''}">${it.opts.map((o,k)=>`<button data-k="${k}">${o}</button>`).join('')}</div>
+      <p class="fb" aria-live="polite"></p><button class="btn" data-a="next" hidden>Next</button>`;
+    root.querySelectorAll('.opts button').forEach(b=>b.addEventListener('click',()=>{
+      if(answered)return;answered=true;const k=+b.dataset.k,ok=k===it.a;if(ok)score++;
+      root.querySelectorAll('.opts button').forEach((x,j)=>{x.disabled=true;if(j===it.a)x.classList.add('right');else if(j===k)x.classList.add('wrong')});
+      const fb=root.querySelector('.fb');fb.className='fb '+(ok?'good':'bad');fb.textContent=(ok?'Correct. ':'Not quite. ')+it.why;
+      root.querySelector('[data-a="next"]').hidden=false;
+    }));
+    root.querySelector('[data-a="next"]').addEventListener('click',()=>{i++;answered=false;draw()});
+  }
+  draw();
+}
+
+/* ---------- match-up ---------- */
+const SETS=[
+ {name:'Alleles and genotypes',pairs:[
+  ['Allele','One version of a gene. An individual inherits two alleles for each gene, one from each parent.'],
+  ['Dominant allele','An allele that is expressed in the phenotype when at least one copy is present.'],
+  ['Recessive allele','An allele that is only expressed in the phenotype when two copies are present.'],
+  ['Genotype','The combination of alleles an individual has for a gene, for example Tt.'],
+  ['Phenotype','The observable characteristic that results from the genotype.'],
+  ['Homozygous dominant','A genotype with two copies of the dominant allele (TT).'],
+  ['Homozygous recessive','A genotype with two copies of the recessive allele (tt).'],
+  ['Heterozygous','A genotype with two different alleles (Tt).'],
+  ['Punnett square','A grid that shows the possible allele combinations in offspring and their probabilities.']]},
+ {name:'Patterns of inheritance',pairs:[
+  ['Complete dominance','The dominant allele completely masks the recessive allele in the heterozygote.'],
+  ['Incomplete dominance','Neither allele is completely dominant, so the heterozygote has an intermediate phenotype.'],
+  ['Co-dominance','Both alleles are fully expressed in the heterozygote at the same time.'],
+  ['Multiple alleles','A gene with more than two alleles in a population, although an individual inherits only two.'],
+  ['Lethal allele','An allele that causes death when an individual has a particular genotype.'],
+  ['Dihybrid cross','A cross that follows the inheritance of two genes at the same time.'],
+  ['Linked genes','Genes located close together on the same chromosome that tend to be inherited together.'],
+  ['Crossing over','The swapping of DNA between homologous chromosomes, which can separate linked alleles.'],
+  ['Test cross','A cross between an individual of unknown genotype and a homozygous recessive individual.']]},
+ {name:'Pattern and example',pairs:[
+  ['Complete dominance','Purple (P) is dominant to white (p) in pea flowers, so Pp plants are purple.'],
+  ['Incomplete dominance','Red snapdragons crossed with white snapdragons give pink offspring.'],
+  ['Co-dominance','Roan cattle have both red hairs and white hairs.'],
+  ['Multiple alleles','The ABO blood group gene has the alleles I(A), I(B) and i.'],
+  ['Lethal allele','Manx cats: MM kittens die before birth, so Mm x Mm gives a 2 : 1 ratio.'],
+  ['Test cross','A purple pea plant is crossed with a white pea plant to find out if it is PP or Pp.'],
+  ['Linked genes','Grey body and long wings tend to be inherited together in fruit flies.'],
+  ['9 : 3 : 3 : 1 ratio','The phenotype ratio from a dihybrid cross of two heterozygotes (RrYy x RrYy).']]}
+];
+let MS=0,M;
+function mReset(){const P=SETS[MS].pairs;M={t:shuf(P.map((_,i)=>i)),d:shuf(P.map((_,i)=>i)),ok:new Set(),st:null,sd:null,miss:0};mDraw();$('#mFb').textContent='';$('#mFb').className='fb'}
+function mDraw(){
+  const P=SETS[MS].pairs;
+  $('#setBtns').innerHTML=SETS.map((s,i)=>`<button data-s="${i}" aria-pressed="${i===MS}">${s.name}</button>`).join('');
+  $('#setBtns').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{MS=+b.dataset.s;mReset()}));
+  const col=(arr,key,sel)=>arr.map(i=>`<button data-k="${key}" data-i="${i}" class="${M.ok.has(i)?'done':''} ${sel===i?'sel':''}" ${M.ok.has(i)?'disabled':''}>${key==='t'?`<span class="term">${P[i][0]}</span>`:P[i][1]}</button>`).join('');
+  $('#mGrid').innerHTML=`<div>${col(M.t,'t',M.st)}</div><div>${col(M.d,'d',M.sd)}</div>`;
+  $('#mGrid').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>mPick(b)));
+  $('#mScore').textContent=`${M.ok.size} of ${P.length} matched, ${M.miss} wrong ${M.miss===1?'attempt':'attempts'}`;
+}
+function mPick(b){
+  const i=+b.dataset.i;if(b.dataset.k==='t')M.st=i;else M.sd=i;
+  if(M.st!==null&&M.sd!==null){
+    const fb=$('#mFb'),n=SETS[MS].pairs.length;
+    if(M.st===M.sd){M.ok.add(M.st);fb.className='fb good';fb.textContent=M.ok.size===n?'All matched. Try another set.':'Correct.'}
+    else{M.miss++;fb.className='fb bad';fb.textContent='Not a match. Reread the definition and try again.'}
+    M.st=null;M.sd=null;
+  }
+  mDraw();
+}
+$('#mReset').addEventListener('click',mReset);
+
+
+/* ---------- genotype check ---------- */
+const HK=['Homozygous dominant','Heterozygous','Homozygous recessive'];
+makeQuiz($('#gtQuiz'),[
+ {q:'What is a dominant allele?',opts:['An allele that is expressed in the phenotype when at least one copy is present','An allele that is always the most common in a population','An allele that is only expressed when two copies are present','An allele that causes a disease'],a:0,why:'A dominant allele is expressed even when only one copy is present.'},
+ {q:'What is a recessive allele?',opts:['An allele that is only expressed when two copies are present','An allele that is rare in a population','An allele that is lost in the next generation','An allele that is found only in males'],a:0,why:'A recessive allele is only expressed when there is no dominant allele, so two copies are needed.'},
+ {q:'An individual has the genotype Tt. Which word describes it?',opts:HK,a:1,why:'It has two different alleles, so it is heterozygous.'},
+ {q:'An individual has the genotype TT. Which word describes it?',opts:HK,a:0,why:'Two copies of the dominant allele is homozygous dominant.'},
+ {q:'An individual has the genotype tt. Which word describes it?',opts:HK,a:2,why:'Two copies of the recessive allele is homozygous recessive.'},
+ {q:'Which genotypes give the dominant phenotype when T is completely dominant over t?',opts:['TT and Tt','Tt only','tt only','TT only'],a:0,why:'One dominant allele is enough to give the dominant phenotype.'},
+ {q:'Tt x Tt. What is the probability of a tt offspring?',opts:['0%','25%','50%','75%'],a:1,why:'The Punnett square gives TT, Tt, Tt and tt. One of four is tt.'},
+ {q:'TT x tt. What is the probability of a Tt offspring?',opts:['0%','50%','75%','100%'],a:3,why:'TT only gives T gametes and tt only gives t gametes, so every offspring is Tt.'},
+ {q:'Tt x tt. What is the probability of a tt offspring?',opts:['0%','25%','50%','100%'],a:2,why:'The Punnett square gives Tt, Tt, tt and tt. Two of four are tt.'},
+ {q:'What is the phenotype ratio from Tt x Tt?',opts:['3 tall : 1 short','1 tall : 1 short','1 tall : 2 medium : 1 short','All tall'],a:0,why:'TT, Tt and Tt are tall and tt is short, so 3 : 1.'},
+ {q:'Which cross can produce a homozygous recessive offspring?',opts:['Tt x Tt','TT x Tt','TT x TT','TT x tt'],a:0,why:'Both parents must be able to pass on a t allele.'}
+],'Genotype check');
+
+/* ---------- spot the pattern ---------- */
+const PAT=['Complete dominance','Incomplete dominance','Co-dominance','Multiple alleles'];
+makeQuiz($('#spotQuiz'),[
+ {q:'A red snapdragon is crossed with a white snapdragon and all offspring are pink. Which pattern is this?',opts:PAT,a:1,why:'The heterozygote has an intermediate phenotype, so neither allele is completely dominant.'},
+ {q:'Roan cattle have both red hairs and white hairs. Which pattern is this?',opts:PAT,a:2,why:'Both alleles are fully expressed at the same time, which is co-dominance.'},
+ {q:'Pink snapdragons (CRCW) are crossed with each other. What is the phenotype ratio of the offspring?',opts:['1 red : 2 pink : 1 white','3 red : 1 white','All pink','1 red : 1 white'],a:0,why:'The Punnett square gives 1 CRCR : 2 CRCW : 1 CWCW, and each genotype has its own phenotype.'},
+ {q:'How many alleles of a multiple allele gene does one person inherit?',opts:['Two','Three','One','As many as there are in the population'],a:0,why:'The gene may have many alleles in a population, but an individual inherits one from each parent, so two.'},
+ {q:'A person with blood group AB has the genotype IAIB. Which pattern explains this?',opts:['Co-dominance of IA and IB','Complete dominance of IA','Incomplete dominance','A lethal allele'],a:0,why:'Both IA and IB are expressed, so the person has both A and B antigens.'},
+ {q:'A blood group A parent (IAi) and a blood group B parent (IBi) have children. Which blood groups are possible?',opts:['A, B, AB and O','A and B only','AB only','O only'],a:0,why:'The Punnett square gives IAIB, IAi, IBi and ii: groups AB, A, B and O.'},
+ {q:'Blood group O (ii) x blood group AB (IAIB). Which blood groups can the children have?',opts:['A and B only','A, B, AB and O','AB only','O only'],a:0,why:'Gametes are i from one parent and IA or IB from the other, so the children are IAi (A) or IBi (B).'},
+ {q:'What is a lethal allele?',opts:['An allele that causes death when an individual has a particular genotype','Any dominant allele','An allele that changes a colour','An allele that is very rare'],a:0,why:'A lethal allele causes death, sometimes only when two copies are present.'},
+ {q:'Manx cats (Mm) have no tail and MM kittens die before birth. Mm x Mm gives what ratio of surviving kittens?',opts:['2 tailless : 1 tailed','3 tailless : 1 tailed','1 tailless : 1 tailed','All tailless'],a:0,why:'The Punnett square gives MM, Mm, Mm and mm. MM do not survive, leaving 2 Mm : 1 mm.'},
+ {q:'In which pattern does the heterozygote look the same as the homozygous dominant?',opts:PAT,a:0,why:'In complete dominance the dominant allele completely masks the recessive allele.'},
+ {q:'Which pattern gives a phenotype ratio that matches the genotype ratio (1 : 2 : 1) when two heterozygotes are crossed?',opts:['Incomplete dominance and co-dominance','Complete dominance','Lethal alleles','Multiple alleles only'],a:0,why:'In both, each of the three genotypes has its own phenotype.'}
+],'Spot the pattern');
+
+/* ---------- dihybrid quiz ---------- */
+makeQuiz($('#diQuiz'),[
+ {q:'How many different gametes can an RrYy parent make?',opts:['2','4','8','16'],a:1,why:'RY, Ry, rY and ry.'},
+ {q:'What is the phenotype ratio of RrYy x RrYy?',opts:['9 : 3 : 3 : 1','3 : 1','1 : 1 : 1 : 1','1 : 2 : 1'],a:0,why:'Round yellow : round green : wrinkled yellow : wrinkled green is 9 : 3 : 3 : 1.'},
+ {q:'RrYy x RrYy. What fraction of offspring are wrinkled and green (rryy)?',opts:['1/16','3/16','1/4','9/16'],a:0,why:'Only one of the 16 squares is rryy.'},
+ {q:'RRYY x rryy. What are the offspring?',opts:['All RrYy: round and yellow','Mixed phenotypes in a 9 : 3 : 3 : 1 ratio','All wrinkled and green','Half round yellow, half wrinkled green'],a:0,why:'RRYY only makes RY gametes and rryy only makes ry gametes, so every offspring is RrYy.'},
+ {q:'RrYy x rryy. What is the phenotype ratio?',opts:['1 : 1 : 1 : 1','9 : 3 : 3 : 1','3 : 1','1 : 1'],a:0,why:'The recessive parent only gives ry, so the four gametes of RrYy each appear in equal numbers.'},
+ {q:'Why does a dihybrid Punnett square usually have 16 squares?',opts:['Each parent makes 4 types of gamete, and 4 x 4 = 16','There are 16 chromosomes','There are 16 alleles','Each parent makes 16 gametes'],a:0,why:'Four gamete types from each parent gives 16 combinations.'}
+],'Dihybrid questions');
+
+/* ---------- monohybrid lab ---------- */
+const AH=t=>t.length===2&&'CI'.includes(t[0])&&t[1]===t[1].toUpperCase()?`${t[0]}<sup>${t[1]}</sup>`:t;
+const GH=g=>g.map(AH).join('');
+const MODES=[
+ {name:'Complete dominance',trait:'Pea plant flower colour',al:['P','p'],
+  gts:[['P','P'],['P','p'],['p','p']],ph:g=>g.includes('P')?0:1,phs:[{n:'Purple flowers',k:'ph0'},{n:'White flowers',k:'ph1'}],
+  def:'<p><strong>Complete dominance:</strong> the dominant allele completely masks the recessive allele. The heterozygote has the same phenotype as the homozygous dominant.</p><p class="muted">P (purple) is dominant to p (white).</p>',
+  note:'The heterozygote (Pp) looks the same as PP, so there are only two phenotypes. Pp x Pp gives a 3 : 1 phenotype ratio.'},
+ {name:'Incomplete dominance',trait:'Snapdragon flower colour',al:['CR','CW'],
+  gts:[['CR','CR'],['CR','CW'],['CW','CW']],ph:g=>g[0]===g[1]?(g[0]==='CR'?0:2):1,phs:[{n:'Red flowers',k:'ph0'},{n:'Pink flowers',k:'ph2'},{n:'White flowers',k:'ph1'}],
+  def:'<p><strong>Incomplete dominance:</strong> neither allele is completely dominant, so the heterozygote has an intermediate phenotype that is a blend of the two homozygous phenotypes.</p><p class="muted">C<sup>R</sup> gives red pigment and C<sup>W</sup> gives none. C<sup>R</sup>C<sup>W</sup> plants are pink.</p>',
+  note:'The heterozygote has its own phenotype (pink), so the phenotype ratio matches the genotype ratio: 1 red : 2 pink : 1 white from a pink x pink cross.'},
+ {name:'Co-dominance',trait:'Cattle coat colour',al:['CR','CW'],
+  gts:[['CR','CR'],['CR','CW'],['CW','CW']],ph:g=>g[0]===g[1]?(g[0]==='CR'?0:2):1,phs:[{n:'Red coat',k:'ph0'},{n:'Roan coat (red and white hairs)',k:'ph2'},{n:'White coat',k:'ph1'}],
+  def:'<p><strong>Co-dominance:</strong> both alleles are fully expressed at the same time in the heterozygote, so both phenotypes can be seen. It is not a blend.</p><p class="muted">C<sup>R</sup>C<sup>W</sup> cattle are roan: they have both red hairs and white hairs.</p>',
+  note:'Both alleles are expressed separately in the heterozygote. The phenotype ratio is 1 red : 2 roan : 1 white from a roan x roan cross, the same as the genotype ratio.'},
+ {name:'Multiple alleles',trait:'ABO blood group',al:['IA','IB','i'],
+  gts:[['IA','IA'],['IA','IB'],['IA','i'],['IB','IB'],['IB','i'],['i','i']],
+  ph:g=>{const s=g.join('');return s==='IAIA'||s==='IAi'?0:s==='IBIB'||s==='IBi'?1:s==='IAIB'?2:3},
+  phs:[{n:'Blood group A',k:'ph0'},{n:'Blood group B',k:'ph1'},{n:'Blood group AB',k:'ph2'},{n:'Blood group O',k:'ph3'}],
+  def:'<p><strong>Multiple alleles:</strong> a gene has more than two alleles in a population. Each individual still inherits only two, one from each parent.</p><p class="muted">The ABO gene has three alleles: I<sup>A</sup>, I<sup>B</sup> and i. I<sup>A</sup> and I<sup>B</sup> are co-dominant, and i is recessive to both.</p>',
+  note:'Because there are three alleles, there are six genotypes and four phenotypes. A cross of I<sup>A</sup>i x I<sup>B</sup>i can give all four blood groups.'},
+ {name:'Lethal allele',trait:'Manx cat tail',al:['M','m'],
+  gts:[['M','M'],['M','m'],['m','m']],ph:g=>g.join('')==='MM'?-1:(g.includes('M')?0:1),phs:[{n:'Tailless (Manx)',k:'ph0'},{n:'Tailed',k:'ph1'}],deadName:'Does not survive',
+  def:'<p><strong>Lethal allele:</strong> an allele that causes death when an individual has a particular genotype. Here M (no tail) is lethal when there are two copies.</p><p class="muted">MM kittens die before birth. Mm kittens have no tail and mm kittens have a tail.</p>',
+  note:'The MM offspring do not survive, so Mm x Mm gives a 2 : 1 ratio of tailless to tailed kittens among the survivors, not 3 : 1.'}
+];
+const MO={m:0,a:1,b:1};
+const sortA=(g,al)=>g.slice().sort((x,y)=>al.indexOf(x)-al.indexOf(y));
+function moSegs(){
+  const M=MODES[MO.m];
+  $('#moMode').innerHTML=MODES.map((x,i)=>`<button data-i="${i}" aria-pressed="${i===MO.m}">${x.name}</button>`).join('');
+  $('#moMode').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{MO.m=+b.dataset.i;MO.a=Math.min(1,M.gts.length-1);MO.a=1;MO.b=1;if(MO.m===3){MO.a=2;MO.b=4}moSegs();moDraw()}));
+  const seg=(id,key)=>{$(id).innerHTML=MODES[MO.m].gts.map((g,i)=>`<button data-i="${i}" aria-pressed="${i===MO[key]}">${GH(g)}</button>`).join('');
+    $(id).querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{MO[key]=+b.dataset.i;moSegs();moDraw()}))};
+  seg('#moA','a');seg('#moB','b');
+}
+function moDraw(){
+  const M=MODES[MO.m],A=M.gts[MO.a],B=M.gts[MO.b];
+  $('#moDef').innerHTML=`<p class="muted">Trait: ${M.trait}</p>`+M.def;
+  const cells=[];
+  for(const y of B)for(const x of A)cells.push(sortA([x,y],M.al));
+  const phIdx=g=>M.ph(g);
+  const cellHtml=g=>{const p=phIdx(g);if(p<0)return `<td class="dead">${GH(g)}<small>${M.deadName}</small></td>`;return `<td class="${M.phs[p].k}">${GH(g)}<small>${M.phs[p].n}</small></td>`};
+  const row=r=>`<tr><th>${AH(B[r])}</th>${cellHtml(cells[r*2])}${cellHtml(cells[r*2+1])}</tr>`;
+  // genotype counts in canonical order
+  const gcount=M.gts.map(g=>cells.filter(c=>c.join('')===g.join('')).length);
+  const gnz=gcount.map((c,i)=>[c,i]).filter(x=>x[0]>0);
+  const gg=gnz.reduce((a,x)=>gcd(a,x[0]),0);
+  const gtext=gnz.map(([c,i])=>`${c/gg} ${GH(M.gts[i])}`).join(' : ');
+  const surv=cells.filter(g=>phIdx(g)>=0);
+  const pc=M.phs.map((p,i)=>surv.filter(g=>phIdx(g)===i).length);
+  const pnz=pc.map((c,i)=>[c,i]).filter(x=>x[0]>0);
+  const pg=pnz.reduce((a,x)=>gcd(a,x[0]),0);
+  const ptext=pnz.map(([c,i])=>`${c/pg} ${M.phs[i].n}`).join(' : ');
+  const fmt=n=>Number.isInteger(n)?n+'%':n.toFixed(1)+'%';
+  const probs=pnz.map(([c,i])=>`<li>${M.phs[i].n}: ${c}/${surv.length} = ${fmt(c/surv.length*100)}</li>`).join('');
+  const gprobs=gnz.map(([c,i])=>`<li>${GH(M.gts[i])}: ${c}/4 = ${c*25}%</li>`).join('');
+  const hasDead=surv.length<4;
+  $('#moOut').innerHTML=`<div class="res"><div><h3>Punnett square</h3><p class="muted">Parent 1 gametes across the top, parent 2 gametes down the side.</p>
+    <table class="pun"><tr><th></th><th>${AH(A[0])}</th><th>${AH(A[1])}</th></tr>${row(0)}${row(1)}</table></div>
+    <div><h3>Results for ${GH(A)} x ${GH(B)}</h3>
+    <p><strong>Genotype ratio:</strong> ${gtext}</p><ul>${gprobs}</ul>
+    <p><strong>Phenotype ratio${hasDead?' (survivors)':''}:</strong> ${ptext}</p><ul>${probs}</ul>
+    ${hasDead?'<p class="muted">The hatched square is a genotype that does not survive, so it is left out of the phenotype ratio.</p>':''}</div></div>
+    <div class="model"><p>${M.note}</p></div>`;
+}
+
+/* ---------- dihybrid lab ---------- */
+const DG=['RRYY','RRYy','RRyy','RrYY','RrYy','Rryy','rrYY','rrYy','rryy'];
+const DS={a:'RrYy',b:'RrYy',mode:'test',revealed:false};
+['dA','dB'].forEach(id=>{$('#'+id).innerHTML=DG.map(g=>`<option ${g==='RrYy'?'selected':''}>${g}</option>`).join('')});
+const gam=g=>{const o=[];[g[0],g[1]].forEach(x=>[g[2],g[3]].forEach(y=>o.push(x+y)));return o};
+const srt=(p,q)=>(p===p.toUpperCase()||q!==q.toUpperCase())?p+q:q+p;
+const canonD=(x,y)=>srt(x[0],y[0])+srt(x[1],y[1]);
+const normD=s=>{const L=s.replace(/\s/g,'').split('');if(L.length!==4)return '';const r=L.filter(c=>c==='R'||c==='r'),yv=L.filter(c=>c==='Y'||c==='y');if(r.length!==2||yv.length!==2)return '';return srt(r[0],r[1])+srt(yv[0],yv[1])};
+const dPh=g=>(g.slice(0,2).includes('R')?0:2)+(g.slice(2).includes('Y')?0:1);
+const DPH=[{n:'Round yellow',k:'ph0'},{n:'Round green',k:'ph1'},{n:'Wrinkled yellow',k:'ph2'},{n:'Wrinkled green',k:'ph3'}];
+function dDraw(){
+  const A=gam(DS.a),B=gam(DS.b),test=DS.mode==='test'&&!DS.revealed;
+  $('#dGam').innerHTML=`Parent 1 (${DS.a}) gametes: <strong>${A.join(', ')}</strong><br>Parent 2 (${DS.b}) gametes: <strong>${B.join(', ')}</strong><br><span class="muted">Combine each allele of the first gene with each allele of the second gene.</span>`;
+  let h='<table class="dg"><tr><th></th>'+A.map(x=>`<th>${x}</th>`).join('')+'</tr>';
+  B.forEach((y,r)=>{h+=`<tr><th>${y}</th>`+A.map((x,c)=>{const g=canonD(x,y),p=dPh(g);
+    return test?`<td><input type="text" maxlength="6" aria-label="Row ${r+1}, column ${c+1}" data-r="${r}" data-c="${c}" data-ans="${g}" autocomplete="off"></td>`:`<td class="${DPH[p].k}">${g}</td>`}).join('')+'</tr>'});
+  $('#dGrid').innerHTML=h+'</table>';
+  $('#dBtns').hidden=!(DS.mode==='test'&&!DS.revealed);
+  $('#dFb').textContent='';$('#dFb').className='fb';
+  dRes(!test);
+}
+function dRes(show){
+  const A=gam(DS.a),B=gam(DS.b),cnt=[0,0,0,0];B.forEach(y=>A.forEach(x=>cnt[dPh(canonD(x,y))]++));
+  if(!show){$('#dRes').innerHTML='<h3>Phenotype ratio</h3><p class="muted">Complete the square (or reveal the answers) to see the phenotypes and the ratio.</p>';return}
+  const nz=cnt.map((c,i)=>[c,i]).filter(x=>x[0]>0),g=nz.reduce((a,x)=>gcd(a,x[0]),0);
+  $('#dRes').innerHTML=`<h3>Phenotype ratio</h3><div class="lg">${DPH.map(p=>`<span><span class="sw3 ${p.k}"></span>${p.n}</span>`).join('')}</div>
+   <p><strong>${nz.map(([c,i])=>`${c/g} ${DPH[i].n}`).join(' : ')}</strong></p>
+   <ul>${nz.map(([c,i])=>`<li>${DPH[i].n}: ${c}/16 = ${Math.round(c/16*1000)/10}%</li>`).join('')}</ul>
+   <p class="muted">R (round) and Y (yellow) are dominant, so any offspring with at least one R shows round seeds and at least one Y shows yellow seeds.</p>`;
+}
+$('#dA').addEventListener('change',e=>{DS.a=e.target.value;DS.revealed=false;dDraw()});
+$('#dB').addEventListener('change',e=>{DS.b=e.target.value;DS.revealed=false;dDraw()});
+$('#dMode').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{DS.mode=b.dataset.m;DS.revealed=false;$('#dMode').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));dDraw()}));
+$('#dCheck').addEventListener('click',()=>{
+  const ins=[...$('#dGrid').querySelectorAll('input')];let ok=0,blank=0;
+  ins.forEach(i=>{const v=normD(i.value);i.classList.remove('ok','no');if(!i.value.trim()){blank++;return}if(v===i.dataset.ans){i.classList.add('ok');ok++}else i.classList.add('no')});
+  const fb=$('#dFb');
+  if(ok===ins.length){fb.className='fb good';fb.textContent='All 16 squares are correct.';DS.revealed=true;dRes(true)}
+  else{fb.className='fb bad';fb.textContent=`${ok} of ${ins.length} correct${blank?`, ${blank} left blank`:''}. Check the gametes and write the alleles of each gene together, for example RrYy.`}
+});
+$('#dReveal').addEventListener('click',()=>{DS.revealed=true;dDraw()});
+
+/* ---------- linked genes lab ---------- */
+const LK={m:'linked',d:10};
+const LPH=[{n:'Grey body, long wings (B V)',k:'ph0',p:'parental'},{n:'Black body, vestigial wings (b v)',k:'ph3',p:'parental'},{n:'Grey body, vestigial wings (B v)',k:'ph1',p:'recombinant'},{n:'Black body, long wings (b V)',k:'ph2',p:'recombinant'}];
+function lkProbs(){const r=LK.m==='linked'?Math.min(.5,LK.d/100):.5;return [(1-r)/2,(1-r)/2,r/2,r/2]}
+function lkDraw(){
+  $('#lkDv').textContent=LK.d;$('#lkSliderWrap').style.display=LK.m==='linked'?'block':'none';
+  const bar=(x,y0,y1,c,w=16)=>`<rect x="${x-w/2}" y="${y0}" width="${w}" height="${y1-y0}" rx="${w/2}" fill="${c}"/>`;
+  const tick=(x,y)=>`<line x1="${x-8}" x2="${x+8}" y1="${y}" y2="${y}" stroke="rgba(0,0,0,.55)" stroke-width="2.5"/>`;
+  const lt=(x,y,t,a='middle')=>`<text x="${x}" y="${y+5}" text-anchor="${a}" style="font-weight:800;font-size:16px">${t}</text>`;
+  let s='';
+  if(LK.m==='linked'){
+    const y1=60,y2=60+LK.d*3;
+    s+=`<text x="180" y="20" text-anchor="middle" style="font-weight:700;font-size:13px">Both genes on ONE chromosome pair</text>`;
+    s+=bar(130,34,250,'var(--c1)')+bar(230,34,250,'var(--c2)')+tick(130,y1)+tick(130,y2)+tick(230,y1)+tick(230,y2);
+    s+=lt(104,y1,'B','end')+lt(104,y2,'V','end')+lt(256,y1,'b','start')+lt(256,y2,'v','start');
+    if(LK.d>0){s+=`<line x1="180" x2="180" y1="${y1}" y2="${y2}" stroke="var(--muted)" stroke-dasharray="4 4"/><text x="186" y="${(y1+y2)/2+4}" class="small" style="font-size:12px">${LK.d} map units</text>`}
+    s+=`<circle cx="130" cy="142" r="7" fill="var(--ink)"/><circle cx="230" cy="142" r="7" fill="var(--ink)"/>`;
+  } else {
+    s+=`<text x="180" y="20" text-anchor="middle" style="font-weight:700;font-size:13px">Genes on DIFFERENT chromosomes</text>`;
+    s+=bar(70,40,210,'var(--c1)')+bar(110,40,210,'var(--c2)')+tick(70,90)+tick(110,90)+lt(46,90,'B','end')+lt(134,90,'b','start');
+    s+=bar(230,80,200,'var(--c1)')+bar(270,80,200,'var(--c2)')+tick(230,140)+tick(270,140)+lt(206,140,'V','end')+lt(294,140,'v','start');
+    s+=`<text x="90" y="262" text-anchor="middle" class="small" style="font-size:12px">pair 1</text><text x="250" y="262" text-anchor="middle" class="small" style="font-size:12px">pair 2</text>`;
+  }
+  $('#lkSvg').innerHTML=s;
+  const P=lkProbs(),pct=P.map(x=>Math.round(x*1000)/10);
+  $('#lkGam').innerHTML=`<h3>Gametes from the heterozygous fly</h3><table class="sum"><thead><tr><th>Gamete</th><th>Type</th><th>Chance</th></tr></thead><tbody>
+   ${['B V','b v','B v','b V'].map((g,i)=>`<tr><td><strong>${g}</strong></td><td>${LPH[i].p}</td><td>${pct[i]}%</td></tr>`).join('')}</tbody></table>
+   <p class="muted" style="margin-top:8px">${LK.m==='linked'?'Parental gametes keep the original allele combinations. Recombinant gametes are made when crossing over separates the linked alleles.':'On different chromosomes, independent assortment gives all four combinations equally.'}</p>`;
+  $('#lkBars').innerHTML=LPH.map((p,i)=>`<div class="b1"><span class="l" style="width:260px">${p.n}</span><div class="f" style="width:${P[i]*100*1.2}%;background:var(--${['c1','c3','c4','c2'][i]})"></div><span>${pct[i]}%</span></div>`).join('');
+  $('#lkSim').innerHTML='';
+  const rec=Math.round((P[2]+P[3])*1000)/10;
+  $('#lkMsg').innerHTML=LK.m==='independent'?'':'';
+  $('#lkMsg').innerHTML=`<h3>What does this show?</h3><p>${LK.m==='indep'?'The genes assort independently, so the test cross gives a 1 : 1 : 1 : 1 phenotype ratio.':LK.d===0?'The genes are so close together that crossing over almost never separates them. Only parental phenotypes appear (1 : 1). The alleles cannot assort independently.':LK.d>=50?'The genes are so far apart that a crossover almost always falls between them. The result looks the same as independent assortment (1 : 1 : 1 : 1).':`Most offspring have the parental combinations, but about ${rec}% are recombinants made by crossing over. The closer the genes, the fewer recombinants.`}</p>`;
+}
+$('#lkD').addEventListener('input',e=>{LK.d=+e.target.value;lkDraw()});
+$('#lkMode').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{LK.m=b.dataset.m;$('#lkMode').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));lkDraw()}));
+$('#lkBreed').addEventListener('click',()=>{
+  const P=lkProbs(),c=[0,0,0,0];for(let i=0;i<200;i++){const r=Math.random();c[r<P[0]?0:r<P[0]+P[1]?1:r<P[0]+P[1]+P[2]?2:3]++}
+  const rec=(c[2]+c[3])/2;
+  $('#lkSim').innerHTML=`<p style="margin-top:8px">Out of 200 flies:</p>`+LPH.map((p,i)=>`<div class="b1"><span class="l" style="width:260px">${p.n}</span><div class="f" style="width:${c[i]/200*120}%;background:var(--${['c1','c3','c4','c2'][i]})"></div><span>${c[i]}</span></div>`).join('')+`<p class="muted">Recombinant offspring: ${c[2]+c[3]} out of 200 (${rec}%).</p>`;
+});
+
+/* ---------- test cross ---------- */
+const TC={mode:'mono',u:null,off:null,answered:false,score:0,total:0};
+const TCM={
+ mono:{opts:['PP','Pp'],ph:[{n:'Purple',c:'var(--c1)'},{n:'White',c:'var(--c2)'}],
+  intro:'This purple-flowered pea plant has an unknown genotype (PP or Pp). It will be crossed with a white-flowered plant (pp).',
+  ans:[['PP','Homozygous dominant (PP)'],['Pp','Heterozygous (Pp)']]},
+ di:{opts:['RRYY','RRYy','RrYY','RrYy'],ph:[{n:'Round yellow',c:'var(--c1)'},{n:'Round green',c:'var(--c4)'},{n:'Wrinkled yellow',c:'var(--c3)'},{n:'Wrinkled green',c:'var(--c2)'}],
+  intro:'This round, yellow pea plant has an unknown genotype. It will be crossed with a wrinkled, green plant (rryy).',
+  ans:[['RRYY','RRYY'],['RRYy','RRYy'],['RrYY','RrYY'],['RrYy','RrYy']]}
+};
+function tcNew(){
+  TC.u=pick(TCM[TC.mode].opts);TC.off=null;TC.answered=false;tcDraw();
+}
+function tcBreed(){
+  const n=+$('#tcN').value,cnt=TC.mode==='mono'?[0,0]:[0,0,0,0],list=[];
+  for(let i=0;i<n;i++){
+    let p;
+    if(TC.mode==='mono'){const a=TC.u[Math.random()<.5?0:1];p=a==='P'?0:1}
+    else{const a=TC.u[Math.random()<.5?0:1],b=TC.u[2+(Math.random()<.5?0:1)];p=(a==='R'?0:2)+(b==='Y'?0:1)}
+    cnt[p]++;list.push(p);
+  }
+  TC.off={n,cnt,list};TC.answered=false;tcDraw();
+}
+function tcDraw(){
+  const M=TCM[TC.mode];
+  $('#tcIntro').textContent=M.intro;
+  $('#tcLegend').innerHTML=M.ph.map(p=>`<span><span class="sw3" style="background:${p.c}"></span>${p.n}</span>`).join('');
+  $('#tcDots').innerHTML=TC.off?TC.off.list.map(p=>`<i style="background:${M.ph[p].c}" title="${M.ph[p].n}"></i>`).join(''):'';
+  $('#tcCounts').textContent=TC.off?M.ph.map((p,i)=>`${p.n}: ${TC.off.cnt[i]}`).join('    '):'Press "Cross with homozygous recessive" to produce offspring.';
+  if(TC.off&&!TC.answered)$('#tcAns').innerHTML=`<p class="qtext" style="margin-top:10px">What is the genotype of the unknown parent?</p><div class="opts ${M.ans.length===2?'two':''}">${M.ans.map(a=>`<button data-g="${a[0]}">${a[1]}</button>`).join('')}</div>`;
+  else $('#tcAns').innerHTML='';
+  if(!TC.off){$('#tcFb').textContent='';$('#tcFb').className='fb'}
+  $('#tcAns').querySelectorAll('[data-g]').forEach(b=>b.addEventListener('click',()=>{
+    TC.answered=true;TC.total++;const ok=b.dataset.g===TC.u;if(ok)TC.score++;
+    const fb=$('#tcFb');fb.className='fb '+(ok?'good':'bad');
+    let why;
+    if(TC.mode==='mono')why=TC.u==='PP'?'A PP parent only makes P gametes, so every offspring is Pp and purple.':'A Pp parent makes P and p gametes, so about half the offspring are pp and white.';
+    else why={RRYY:'All offspring are round and yellow: the parent makes only RY gametes.',RRYy:'Round yellow and round green in about equal numbers: the parent is homozygous for round but heterozygous for colour.',RrYY:'Round yellow and wrinkled yellow in about equal numbers: the parent is heterozygous for shape but homozygous for yellow.',RrYy:'All four phenotypes in about equal numbers (1 : 1 : 1 : 1): the parent makes four gamete types.'}[TC.u];
+    let extra='';
+    if(TC.mode==='mono'&&!ok&&TC.u==='Pp'&&TC.off.cnt[1]===0)extra=` With only ${TC.off.n} offspring, chance can give no white plants even from a Pp parent (probability ${Math.round(Math.pow(.5,TC.off.n)*1000)/10}%). A larger number of offspring makes the test more reliable.`;
+    fb.textContent=(ok?'Correct. ':`Not quite. The unknown parent was ${TC.u}. `)+why+extra;
+    $('#tcScore').textContent=`Score: ${TC.score} of ${TC.total}`;
+    $('#tcAns').innerHTML='';
+  }));
+}
+function mini(A,B){
+  const al=['P','p'],cells=[];for(const y of B)for(const x of A)cells.push(sortA([x,y],al));
+  const c=g=>`<td class="${g.includes('P')?'ph0':'ph1'}">${g.join('')}</td>`;
+  return `<table class="pun small"><tr><th></th><th>${A[0]}</th><th>${A[1]}</th></tr><tr><th>${B[0]}</th>${c(cells[0])}${c(cells[1])}</tr><tr><th>${B[1]}</th>${c(cells[2])}${c(cells[3])}</tr></table>`;
+}
+$('#tcSq1').innerHTML=mini(['P','P'],['p','p']);$('#tcSq2').innerHTML=mini(['P','p'],['p','p']);
+$('#tcBreed').addEventListener('click',tcBreed);$('#tcNew').addEventListener('click',()=>{TC.off=null;tcNew()});
+$('#tcMode').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{TC.mode=b.dataset.m;$('#tcMode').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));tcNew()}));
+/* ---------- build an answer ---------- */
+const BQ=[
+ {t:'Dominant vs recessive',q:'Explain the difference between dominant and recessive alleles.',s:[
+  'An allele is one version of a gene, and an individual inherits two alleles for each gene.',
+  'A dominant allele is expressed in the phenotype when at least one copy is present.',
+  'So both homozygous dominant (TT) and heterozygous (Tt) individuals show the dominant phenotype.',
+  'A recessive allele is only expressed when two copies are present, in the homozygous recessive genotype (tt).',
+  'In a heterozygote the recessive allele is still there, but its effect is masked by the dominant allele.',
+  'This is why two parents with the dominant phenotype can have a child with the recessive phenotype if both are heterozygous.']},
+ {t:'Complete dominance',q:'In pea plants, purple flowers (P) are completely dominant to white flowers (p). Use a Punnett square to explain the offspring of Pp x Pp.',s:[
+  'Each Pp parent makes two types of gamete, P and p, in equal numbers.',
+  'The Punnett square combines each gamete from one parent with each gamete from the other.',
+  'This gives the genotypes PP, Pp, Pp and pp, a genotype ratio of 1 : 2 : 1.',
+  'P is completely dominant, so PP and Pp plants both have purple flowers.',
+  'Only pp plants have white flowers.',
+  'The phenotype ratio is therefore 3 purple : 1 white.']},
+ {t:'Incomplete dominance',q:'In snapdragons a red plant (CRCR) crossed with a white plant (CWCW) gives pink offspring. Use Punnett squares to explain incomplete dominance.',s:[
+  'In incomplete dominance neither allele is completely dominant over the other.',
+  'The Punnett square for CRCR x CWCW gives only CRCW offspring.',
+  'The heterozygote shows an intermediate phenotype, which is pink.',
+  'Crossing two pink plants (CRCW x CRCW) gives 1 CRCR : 2 CRCW : 1 CWCW.',
+  'Because the heterozygote has its own phenotype, the phenotype ratio is 1 red : 2 pink : 1 white.',
+  'The phenotype ratio is the same as the genotype ratio.']},
+ {t:'Co-dominance',q:'In cattle, red hair (CRCR) and white hair (CWCW) are co-dominant. Use a Punnett square to explain co-dominance.',s:[
+  'In co-dominance both alleles are fully expressed in the heterozygote at the same time.',
+  'A red cow (CRCR) crossed with a white bull (CWCW) gives only CRCW calves.',
+  'These calves are roan, with both red hairs and white hairs, not a blend.',
+  'Crossing two roan cattle gives 1 CRCR : 2 CRCW : 1 CWCW in the Punnett square.',
+  'This is a phenotype ratio of 1 red : 2 roan : 1 white.',
+  'Each allele is expressed separately, so the heterozygote shows both phenotypes.']},
+ {t:'Multiple alleles',q:'Explain multiple alleles using a Punnett square for a cross between blood group A (IAi) and blood group B (IBi).',s:[
+  'Multiple alleles means a gene has more than two alleles in a population.',
+  'The ABO gene has three alleles: IA, IB and i.',
+  'Each person still inherits only two alleles, one from each parent.',
+  'The Punnett square for IAi x IBi gives IAIB, IAi, IBi and ii.',
+  'IA and IB are co-dominant and i is recessive, so the phenotypes are AB, A, B and O.',
+  'Each child has a 25% chance of each of the four blood groups.']},
+ {t:'Lethal allele',q:'Manx cats (Mm) have no tail, and the genotype MM is lethal. Explain lethal alleles using a Punnett square.',s:[
+  'A lethal allele causes death when an individual has a particular genotype.',
+  'Crossing two tailless Manx cats (Mm x Mm) gives MM, Mm, Mm and mm in the Punnett square.',
+  'MM kittens die before birth, so they are not seen among the offspring.',
+  'The surviving kittens are Mm (tailless) and mm (tailed).',
+  'This gives a ratio of 2 tailless : 1 tailed instead of 3 : 1.',
+  'The lethal allele changes the expected ratio because one genotype does not survive.']},
+ {t:'Dihybrid cross',q:'Explain how a dihybrid cross RrYy x RrYy shows the inheritance of two genes.',s:[
+  'Each parent makes four types of gamete: RY, Ry, rY and ry.',
+  'The genes are on different chromosomes, so they assort independently.',
+  'A 4 x 4 Punnett square gives 16 equally likely combinations.',
+  'The phenotypes are round yellow, round green, wrinkled yellow and wrinkled green.',
+  'These appear in the ratio 9 : 3 : 3 : 1.',
+  'Round and yellow are dominant, so any offspring with at least one R and one Y shows both dominant phenotypes.']},
+ {t:'Linked genes',q:'Explain what linked genes are and why they cannot assort independently.',s:[
+  'Linked genes are genes located close together on the same chromosome.',
+  'During meiosis, whole chromosomes are separated into gametes.',
+  'Genes on the same chromosome therefore travel together into the same gamete.',
+  'This means the alleles do not assort independently of each other.',
+  'The offspring ratio is not the 9 : 3 : 3 : 1 expected for genes on different chromosomes.',
+  'Mostly the parental combinations of alleles appear in the offspring.']},
+ {t:'Crossing over',q:'Explain how linked alleles may be separated by crossing over.',s:[
+  'In prophase I of meiosis, homologous chromosomes pair up.',
+  'Non-sister chromatids can swap sections of DNA in crossing over.',
+  'If the swap happens between two linked genes, the alleles on each chromatid are exchanged.',
+  'This creates recombinant chromatids with new combinations of alleles.',
+  'Gametes with these chromatids produce offspring with recombinant phenotypes.',
+  'The further apart two genes are, the more often a crossover falls between them, so the more recombinants are produced.']},
+ {t:'Test cross',q:'Explain what a test cross is and how it is carried out.',s:[
+  'A test cross is used to find the genotype of an individual that shows the dominant phenotype.',
+  'The individual could be homozygous dominant or heterozygous, which look the same.',
+  'It is crossed with a homozygous recessive individual.',
+  'A large number of offspring are produced and their phenotypes are counted.',
+  'If all the offspring show the dominant phenotype, the unknown parent is homozygous dominant.',
+  'If about half the offspring show the recessive phenotype, the unknown parent is heterozygous.']}
+];
+let B={q:0,pool:[],ans:[],checked:false,shown:false};
+function bSet(q){B={q,pool:shuf(BQ[q].s.map((_,i)=>i)),ans:[],checked:false,shown:false};bDraw()}
+function bDraw(){
+  const Q=BQ[B.q];
+  $('#qpick').innerHTML=BQ.map((x,i)=>`<button data-q="${i}" aria-pressed="${i===B.q}">${x.t}</button>`).join('');
+  $('#qpick').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>bSet(+b.dataset.q)));
+  const ansHtml=B.ans.map((i,pos)=>`<li><button data-a="${pos}" class="${B.checked?(i===pos?'ok':'no'):''}">${pos+1}. ${Q.s[i]}${B.checked?(i===pos?' (right place)':' (not in the right place)'):''}</button></li>`).join('');
+  $('#buildCard').innerHTML=`<p><strong>Question:</strong> ${Q.q}</p>
+   <h3 style="margin-top:14px">Sentences to use</h3>${B.pool.length?B.pool.map(i=>`<button class="chip" data-p="${i}">${Q.s[i]}</button>`).join(''):'<p class="muted">All sentences used.</p>'}
+   <h3 style="margin-top:14px">Your answer</h3>${B.ans.length?`<ol class="ans">${ansHtml}</ol>`:'<p class="muted">Select sentences above to build your answer.</p>'}
+   <div class="row" style="margin-top:12px"><button class="btn" id="bCheck" ${B.pool.length?'disabled':''}>Check order</button><button class="btn ghost" id="bModel">${B.shown?'Hide model answer':'Show model answer'}</button><button class="btn ghost" id="bReset">Start again</button></div>
+   <p class="fb" id="bFb" aria-live="polite"></p>
+   ${B.shown?`<div class="model"><p><strong>Model answer</strong></p><p>${Q.s.join(' ')}</p></div>`:''}`;
+  $('#buildCard').querySelectorAll('[data-p]').forEach(b=>b.addEventListener('click',()=>{const i=+b.dataset.p;B.pool=B.pool.filter(x=>x!==i);B.ans.push(i);B.checked=false;bDraw()}));
+  $('#buildCard').querySelectorAll('[data-a]').forEach(b=>b.addEventListener('click',()=>{const pos=+b.dataset.a;B.pool.push(B.ans[pos]);B.ans.splice(pos,1);B.checked=false;bDraw()}));
+  $('#bCheck').addEventListener('click',()=>{B.checked=true;bDraw();const n=B.ans.filter((i,p)=>i===p).length,fb=$('#bFb');
+    fb.className='fb '+(n===Q.s.length?'good':'bad');
+    fb.textContent=n===Q.s.length?'Every sentence is in the right place. Each one leads to the next.':`${n} of ${Q.s.length} sentences are in the right place. Ask what has to happen first, then what that causes.`});
+  $('#bModel').addEventListener('click',()=>{B.shown=!B.shown;bDraw()});
+  $('#bReset').addEventListener('click',()=>bSet(B.q));
+}
+
+
+/* ---------- init ---------- */
+mReset();moSegs();moDraw();dDraw();lkDraw();tcNew();bSet(0);show('match');
+</script>
+</body>
+</html>
